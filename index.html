@@ -7,36 +7,67 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f9;
+            background-color: #2c2c2c; /* Dark grey background */
+            color: #f4f4f4; /* Light grey text */
             margin: 0;
-            padding: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1, h2, p {
+            color: #ffffff;
         }
         .social-links a {
             margin: 0 10px;
             text-decoration: none;
-            color: #007bff;
+            color: #1e90ff;
         }
         .social-links a:hover {
             text-decoration: underline;
         }
-        img {
-            max-width: 200px;
-            border-radius: 50%;
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            aspect-ratio: 1; /* Makes images square */
+            object-fit: cover; /* Ensures the image fills the square */
+            border: 2px solid #444; /* Optional border */
+            border-radius: 5px; /* Slightly rounded corners */
         }
     </style>
 </head>
 <body>
     <h1>Giovanni Matthew DiSalvo</h1>
-    <img src="images/profile.jpg" alt="Profile Picture">
     <p>Email: <a href="mailto:gdisalvo30@gmail.com">gdisalvo30@gmail.com</a></p>
     <p>Phone: (916) 770-5902</p>
     <div class="social-links">
         <a href="https://github.com/gdisalvo30" target="_blank">GitHub</a>
         <a href="https://linkedin.com/in/giodisalvo" target="_blank">LinkedIn</a>
     </div>
-    <h2>My Projects</h2>
-    <img src="images/image1.jpg" alt="Project 1" />
-    <img src="images/image2.jpg" alt="Project 2" />
+    <h2>Image Gallery</h2>
+    <div class="gallery" id="gallery">
+        <!-- Images will be loaded dynamically -->
+    </div>
+    <script>
+        // Dynamically load all images from the "images" folder
+        const gallery = document.getElementById("gallery");
+
+        // Assuming the "images" folder is in the same directory as index.html
+        const images = [
+            "images/profile.jpg", 
+            "images/image1.jpg", 
+            "images/image2.jpg"
+        ];
+
+        images.forEach(imagePath => {
+            const img = document.createElement("img");
+            img.src = imagePath;
+            img.alt = "Gallery image";
+            gallery.appendChild(img);
+        });
+    </script>
 </body>
 </html>
