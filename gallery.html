@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giovanni Matthew DiSalvo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2c2c2c;
+            color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #1e1e1e;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .sidebar h1 {
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #ffffff;
+        }
+        .profile-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid #444;
+            object-fit: cover;
+        }
+        .social-links a {
+            display: block;
+            margin: 10px 0;
+            text-decoration: none;
+            color: #1e90ff;
+        }
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+        .main-content h2 {
+            margin-left: 20px;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 600px);
+            gap: 15px;
+            margin: 20px 0;
+            justify-content: center;
+        }
+        .gallery img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border: 2px solid #444;
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div>
+            <h1>
+                <img src="images/profile.jpg" alt="Profile Picture" class="profile-image">
+                Giovanni Matthew DiSalvo
+            </h1>
+            <p>Email: <a href="mailto:gdisalvo30@gmail.com">gdisalvo30@gmail.com</a></p>
+            <p>Phone: (916) 770-5902</p>
+            <div class="social-links">
+                <a href="https://github.com/gdisalvo30" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/giodisalvo" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <h2>Image Gallery</h2>
+        <div class="gallery" id="gallery">
+        </div>
+    </div>
+    <script>
+        const gallery = document.getElementById("gallery");
+
+        // Dynamically include images from image1.jpg to image7.jpg
+        const images = [];
+        for (let i = 1; i <= 7; i++) {
+            images.push(`images/image${i}.jpg`);
+        }
+
+        images.forEach(imagePath => {
+            const img = document.createElement("img");
+            img.src = imagePath;
+            img.alt = "Gallery image";
+            gallery.appendChild(img);
+        });
+    </script>
+</body>
+</html>
